@@ -1,0 +1,163 @@
+/*
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ CONTENTS /\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\/\
+
+    # Name
+
+    Travi
+
+    # Description
+
+    Travi is a Chrome Developer Tools skin.
+
+    See https://github.com/manovotny/chrome-developer-tools-skins for installation
+    instructions.
+
+    # Sections:
+
+    * Colors
+    * Mixins
+    * Elements Tab
+        * General
+        * Arrows
+        * HTML
+        * CSS
+        * JavaScript
+
+    # Author
+
+    Michael Novotny: http://manovotny.com
+
+    # Credits
+
+    Color scheme is based on the Darker Skin by Darcy Clarke:
+    http://darcyclarke.me/design/skin-your-chrome-inspector/
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\/\/\/\/\/\/\
+*/
+
+
+/* Colors
+---------------------------------------------------------------------------------- */
+
+@gray: #8C8C8C;
+@green: #ABCA7E;
+@dark-blue: #242537;
+@orange: #D97640;
+@red: #D9656C;
+@yellow: #FFC97C;
+
+
+/* Mixins
+---------------------------------------------------------------------------------- */
+
+@background-color: @dark-blue;
+@css-comment-color: @gray;
+@css-important: @red;
+@css-keyword: @orange;
+@css-media: @red;
+@css-selector: @yellow;
+@css-value: @green;
+@html-attribute-name-color: @orange;
+@html-attribute-value-color: @green;
+@html-comment-color: @gray;
+@html-tag-color: @yellow;
+@javascript-keyword: @orange;
+@javascript-selector: @orange;
+
+
+/* Elements Tab
+---------------------------------------------------------------------------------- */
+
+#elements-content {
+
+    /* General
+    ---------------------------------------------- */
+
+    &.source-code {
+        background: @background-color;
+    }
+
+    .selected,
+    .hovered {
+        background-color: rgba(255, 255, 255, 0.2) ! important;
+    }
+
+
+    /* Arrows
+    ---------------------------------------------- */
+
+    .parent::before {
+        content: url( chrome-devtools://devtools/Images/treeRightTriangleWhite.png ) !important;
+    }
+
+    .parent.expanded::before {
+        content: url( chrome-devtools://devtools/Images/treeDownTriangleWhite.png ) !important;
+    }
+
+
+    /* HTML
+    ---------------------------------------------- */
+
+    .webkit-html-comment {
+        color: @html-comment-color !important;;
+    }
+
+    .webkit-html-tag {
+        color: @html-tag-color !important;
+    }
+
+    .webkit-html-attribute-name {
+        color:  @html-attribute-name-color !important;
+    }
+
+    .webkit-html-attribute-value {
+        color: @html-attribute-value-color !important;
+    }
+
+    .webkit-html-text-node {
+        color: @css-selector !important;
+    }
+
+
+    /* CSS
+    ---------------------------------------------- */
+
+    .webkit-css-comment {
+        color: @css-comment-color !important;
+    }
+
+    .webkit-css-selector,
+    .webkit-html-css-node {
+        color: @css-selector !important;
+    }
+
+    .webkit-css-property {
+        color: @css-keyword !important;
+    }
+
+    .webkit-css-bang-keyword,
+    .webkit-css-important {
+        color: @css-important !important;
+    }
+
+    .webkit-css-at-rule {
+        color: @css-media !important;
+    }
+
+    .webkit-css-number {
+        color: @css-value !important;
+    }
+
+
+    /* JavaScript
+    ---------------------------------------------- */
+
+    .webkit-html-js-node {
+        color: @javascript-selector !important;
+    }
+
+    .webkit-javascript-keyword {
+        color: @javascript-keyword !important;
+    }
+
+}
