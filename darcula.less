@@ -1,0 +1,293 @@
+/*
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ CONTENTS /\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\/\
+
+    # Name
+
+    Darcula
+
+    # Description
+
+    Darcula is a Chrome Developer Tools skin.
+
+    See https://github.com/manovotny/chrome-developer-tools-skins for installation
+    instructions.
+
+    # Sections:
+
+    * Colors
+    * Mixins
+    * Elements Tab
+        * General
+        * Arrows
+        * HTML
+        * CSS
+        * JavaScript
+
+    # Author
+
+    Michael Novotny: http://manovotny.com
+
+    # Credits
+
+    Color scheme is based on JetBrains IntelliJ Idea Darcula theme.
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\/\/\/\/\/\/\
+*/
+
+
+/* Colors
+---------------------------------------------------------------------------------- */
+
+@black: #333333;
+@blue: #287BDE;
+@blue-dark: #214283;
+@blue-light: #6897BB;
+@gray: #A9B7C6;
+@gray-light: #808080;
+@gray-dark: #2B2B2B;
+@gray-dark-hightlight: #323232;
+@green: #A5C261;
+@orange: #CC7833;
+@red-light: #DA4939;
+@yellow: #E8BF6A;
+
+
+/* Mixins
+---------------------------------------------------------------------------------- */
+
+/* general */
+@background-color: @gray-dark;
+@blocks: @gray;
+@hover: @gray-dark-hightlight;
+@selection: @blue-dark;
+
+/* Editing */
+@editing-background: @gray-dark-hightlight;
+@editing-color: @orange;
+
+/* console */
+@console-borders: @gray;
+@console-children: @orange;
+@console-error-color: @red-light;
+@console-text: @gray;
+@console-url: @blue;
+@console-url-hover: @blue;
+
+/* css */
+@css-colors: @yellow;
+@css-comment-color: @gray-light;
+@css-important: @orange;
+@css-keyword: @green;
+@css-property: @red-light;
+@css-media: @orange;
+@css-number: @blue-light;
+@css-selector: @yellow;
+@css-url: @blue;
+@css-value: @green;
+
+/* html */
+@html-attribute-name-color: @yellow;
+@html-attribute-value-color: @green;
+@html-comment-color: @gray-light;
+@html-message-bubble-color: @black;
+@html-tag-color: @orange;
+
+/* javascript */
+@javascript-comment: @gray-light;
+@javascript-indent: @yellow;
+@javascript-keyword: @orange;
+@javascript-node: @gray;
+@javascript-number: @green;
+@javascript-string: @green;
+
+
+/* Elements & Script Tab
+---------------------------------------------------------------------------------- */
+
+#elements-content,
+.scripts .split-view-contents-second .tabbed-pane-content,
+#console-messages .console-formatted-node {
+
+    /* General
+    ---------------------------------------------- */
+
+    &.source-code,
+    .text-editor,
+    .text-editor-contents,
+    .outline-disclosure > ol {
+        background: @background-color;
+        color: @gray;
+    }
+
+    .editing {
+        background-color: @editing-background !important;
+        color: @editing-color !important;
+    }
+
+    .hovered {
+        background-color: @hover !important;
+    }
+
+    .selected {
+        background-color: @blue-dark !important;
+    }
+
+    .webkit-block-start,
+    .webkit-block-end,
+    .webkit-html-css-node {
+        color: @blocks !important;
+    }
+
+    /* Arrows
+    ---------------------------------------------- */
+
+    .parent::before {
+        content: url( chrome-devtools://devtools/Images/treeRightTriangleWhite.png ) !important;
+    }
+
+    .parent.expanded::before {
+        content: url( chrome-devtools://devtools/Images/treeDownTriangleWhite.png ) !important;
+    }
+
+    /* HTML
+    ---------------------------------------------- */
+
+    .webkit-html-comment {
+        color: @html-comment-color !important;;
+    }
+
+    .webkit-html-tag {
+        color: @html-tag-color !important;
+    }
+
+    .webkit-html-attribute-name {
+        color:  @html-attribute-name-color !important;
+    }
+
+    .webkit-html-attribute-value {
+        color: @html-attribute-value-color !important;
+    }
+
+    .webkit-html-doctype,
+    .webkit-html-text-node
+    {
+        color: @gray !important;
+    }
+
+    .webkit-html-message-bubble {
+        color: @html-message-bubble-color;
+    }
+
+    /* CSS
+    ---------------------------------------------- */
+
+    .webkit-css-comment {
+        color: @css-comment-color !important;
+    }
+
+    .webkit-css-selector,
+    .webkit-css-string {
+        color: @css-selector !important;
+    }
+
+    .webkit-css-property {
+        color: @css-property !important;
+    }
+
+    .webkit-css-bang-keyword,
+    .webkit-css-important {
+        color: @css-important !important;
+    }
+
+    .webkit-css-at-rule {
+        color: @css-media !important;
+    }
+
+    .webkit-css-keyword {
+        color: @css-keyword !important;
+    }
+
+    .webkit-css-url {
+        color: @css-url !important;
+    }
+
+    .webkit-css-color {
+        color: @css-colors !important;
+    }
+
+    .webkit-css-number {
+        color: @css-number !important;
+    }
+
+    /* JavaScript
+    ---------------------------------------------- */
+
+    .webkit-html-js-node {
+        color: @javascript-node !important;
+    }
+
+    .webkit-javascript-string {
+        color: @javascript-string !important;
+    }
+
+    .webkit-javascript-number {
+        color: @javascript-number !important;
+    }
+
+    .webkit-javascript-comment {
+        color: @javascript-comment !important;
+    }
+
+    .webkit-javascript-keyword {
+        color: @javascript-keyword !important;
+    }
+
+    .webkit-javascript-ident {
+        color: @javascript-indent !important;
+    }
+
+}
+
+
+/* Console Tab
+---------------------------------------------------------------------------------- */
+
+#console-messages {
+
+    background: @background-color;
+    color: @console-text;
+
+    /* Arrows
+    ---------------------------------------------- */
+
+    .parent::before {
+        content: url( chrome-devtools://devtools/Images/treeRightTriangleWhite.png ) !important;
+    }
+
+    .parent.expanded::before {
+        content: url( chrome-devtools://devtools/Images/treeDownTriangleWhite.png ) !important;
+    }
+
+    .outline-disclosure > ol span {
+        color: @console-children;
+    }
+
+    a {
+        color: @console-url !important;
+    }
+
+    .console-error-level .console-message-text,
+    .console-error-level .section .header .title {
+        color: @console-error-color !important;
+    }
+
+    .console-message,
+    .console-user-command {
+        border-top: 0 !important;
+    }
+
+    #console-prompt{
+        border-top-color: @console-borders !important;
+        color: @console-text !important;
+    }
+}
